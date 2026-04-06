@@ -1,0 +1,9 @@
+{
+  "policy": "fair",
+  "quantum": 3,
+  "tasks": [
+    { "id": 1, "name": "cpu_low", "arrival": 0, "runtime": 15, "nice": 10 },
+    { "id": 2, "name": "cpu_mid", "arrival": 1, "runtime": 15, "nice": 0 },
+    { "id": 3, "name": "cpu_high", "arrival": 2, "runtime": 15, "nice": -5 }
+  ]
+}

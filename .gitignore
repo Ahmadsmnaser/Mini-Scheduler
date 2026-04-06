@@ -1,0 +1,6 @@
+build/
+results/*.log
+results/*.json
+*.o
+*.out
+

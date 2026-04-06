@@ -1,0 +1,10 @@
+{
+  "policy": "rr",
+  "quantum": 4,
+  "tasks": [
+    { "id": 1, "name": "A", "arrival": 0, "runtime": 12, "nice": 0 },
+    { "id": 2, "name": "B", "arrival": 0, "runtime": 12, "nice": 0 },
+    { "id": 3, "name": "C", "arrival": 0, "runtime": 12, "nice": 0 }
+  ]
+}
+
