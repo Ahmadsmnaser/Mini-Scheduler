@@ -1,4 +1,4 @@
-# Mini Scheduler
+# Mini Scheduler ⚙️
 
 A deterministic, single-CPU, userspace scheduler simulator written in C11.
 
@@ -6,7 +6,7 @@ Built to model core scheduling concepts — enqueue, pick-next, preemption, vrun
 
 ---
 
-## Part of a Two-Project Scheduler Study
+## 🧠 Part of a Two-Project Scheduler Study
 
 This project is one half of a connected study on CPU scheduling:
 
@@ -25,7 +25,7 @@ This simulator was built to iterate on policy ideas fast. SchedScope proves they
 
 ---
 
-## What This Project Does
+## 🚀 What This Project Does
 
 - Simulates Round Robin and Fair scheduling in userspace
 - Injects tasks at configurable arrival times from JSON configs
@@ -35,7 +35,7 @@ This simulator was built to iterate on policy ideas fast. SchedScope proves they
 
 ---
 
-## Measured Results
+## 📊 Measured Results
 
 Same workload (`fair_simple.json`) run under both policies:
 
@@ -59,7 +59,7 @@ Per-task response time comparison:
 
 ---
 
-## Architecture
+## 🏗️ Architecture
 
 ```
 JSON config → Engine (tick loop) → Policy (RR or Fair)
@@ -85,7 +85,7 @@ The engine calls only this interface — it has no knowledge of which policy is 
 
 ---
 
-## Trace Format
+## 📝 Trace Format
 
 One line per event. Short. Parseable. No filler.
 
@@ -103,7 +103,7 @@ Same format used in SchedScope kernel traces.
 
 ---
 
-## Fair Scheduler Model
+## ⚖️ Fair Scheduler Model
 
 ```
 pick_next:  task with smallest vruntime
@@ -115,7 +115,7 @@ Lower nice → slower vruntime growth → more CPU time. This approximates the C
 
 ---
 
-## Build and Run
+## 🛠️ Build and Run
 
 ```bash
 # Build
@@ -138,7 +138,7 @@ ASAN_OPTIONS=detect_leaks=0 make test CFLAGS='-std=c11 -Wall -Wextra -Werror -pe
 
 ---
 
-## Example Config
+## 📁 Example Config
 
 ```json
 {
@@ -154,7 +154,7 @@ ASAN_OPTIONS=detect_leaks=0 make test CFLAGS='-std=c11 -Wall -Wextra -Werror -pe
 
 ---
 
-## Project Layout
+## 📂 Project Layout
 
 ```
 mini_scheduler/
@@ -176,7 +176,7 @@ mini_scheduler/
 
 ---
 
-## Metrics Computed
+## 📈 Metrics Computed
 
 Per task: `waiting_time`, `turnaround_time`, `response_time`, `runtime`
 
@@ -186,7 +186,7 @@ All metrics are derived from the trace log — not from internal engine state.
 
 ---
 
-## Tests
+## 🧪 Tests
 
 Coverage: engine correctness, RR rotation, Fair preemption, config parsing, metrics parsing, compare mode.
 
@@ -196,7 +196,7 @@ make clean && make && make test
 
 ---
 
-## What I Would Do Differently
+## 🔧 What I Would Do Differently
 
 - Fix the fairness index computation to show meaningful delta between RR and Fair
 - Add a starvation detection metric — useful for showing priority inversion scenarios
@@ -205,12 +205,6 @@ make clean && make && make test
 
 ---
 
-## Interview Narrative
-
-> "I built a userspace scheduler simulator in C to iterate on policy ideas without touching kernel code. It uses the same trace format and metrics pipeline as my SchedScope kernel project. The comparison mode runs the same workload under RR and Fair and measures the difference — Fair cut response time to zero for all tasks at the cost of +366% context switches. That trade-off is exactly what you see in real CFS behavior."
-
----
-
-## Docs
+## 📚 Docs
 
 - [Phase-by-Phase Implementation Notes](docs/PROJECT_PHASES.md)
